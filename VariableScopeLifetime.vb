@@ -17,12 +17,20 @@ Module VariableScopeLifetime
         'TestTwo
         Dim z As String = "z in main"
 
-        TestThree(z)
+        'TestThree(z)
+        TestFour(z)
         Console.WriteLine(z)
 
         Console.Read()
     End Sub
 
+    Sub TestFour(ByRef anyString As String)
+
+        Console.WriteLine(anyString)
+        anyString = "not in main"
+        Console.WriteLine(anyString)
+
+    End Sub
 
     Sub TestThree(ByVal anyString As String)
 
