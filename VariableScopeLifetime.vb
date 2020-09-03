@@ -6,21 +6,51 @@ Option Compare Binary
 'RCET0265
 'Fall2020
 'VariableScopeLifetime
+'https://github.com/justinehoffa/VariableScopeLifetime
 
 
 Module VariableScopeLifetime
 
+    Dim y As Integer
+
     Sub Main()
-        Dim x As Integer
-        Console.WriteLine(x)
+        'TestTwo
+        Dim z As String = "z in main"
 
-        Console.ReadLine()
+        TestThree(z)
+        Console.WriteLine(z)
+
+        Console.Read()
+    End Sub
 
 
+    Sub TestThree(ByVal anyString As String)
 
-
-
+        Console.WriteLine(anyString)
+        anyString = "not in main"
+        Console.WriteLine(anyString)
 
     End Sub
 
+    Sub TestTwo()
+        Dim x As Integer
+        y = 7I
+        x = 42I
+        Console.WriteLine("x = " & CStr(x))
+        Console.WriteLine("y =" & CStr(y))
+    End Sub
+
+    Sub TestOne()
+        Dim x As Integer
+        Console.WriteLine("x = " & CStr(x))
+        Console.WriteLine("y =" & CStr(y))
+        x = 5I
+        y = 4I
+        Console.WriteLine("x = " & CStr(x))
+        Console.WriteLine("y =" & CStr(y))
+        TestOne()
+        Console.WriteLine("x = " & CStr(x))
+        Console.WriteLine("y =" & CStr(y))
+        Console.ReadLine()
+    End Sub
 End Module
